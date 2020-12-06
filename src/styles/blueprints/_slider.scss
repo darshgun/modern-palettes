@@ -1,0 +1,17 @@
+@mixin slider-base($component) {
+  display: flex;
+  flex: 0 0 100%;
+  align-items: center;
+  .#{$component}--slider {
+    width: #{'calc(100% - #{($control-slim-height * 2)})'};
+  }
+  .#{$component}--control {
+    width: $control-height;
+  }
+
+  &--controls {
+    .#{$component}--slider {
+      margin: 0 ($control-slim-height/3);
+    }
+  }
+}

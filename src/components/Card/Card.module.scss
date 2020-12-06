@@ -1,0 +1,17 @@
+@import 'styles/common';
+
+.card {
+  background-color: color('background');
+  // border-radius: max(0px, min(8px, ((100vw - 4px) - 100%) * 9999)) / 8px;
+  box-shadow: 0 1px 2px color('grey', '20');
+}
+.header {
+  padding: spacing('base-tight') spacing() 0;
+  margin-bottom: spacing();
+}
+.content {
+  padding: 0 spacing() spacing('base-tight');
+}
+.footer {
+  padding: 0 spacing() spacing('base-tight');
+}

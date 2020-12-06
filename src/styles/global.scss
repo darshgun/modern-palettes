@@ -1,0 +1,123 @@
+/**
+ * This file is the global CSS that must be included by all applications that consume Gecko
+ */
+@import './common';
+@import './layout/utilities/utilities';
+@import './layout/grid/grid';
+
+/**
+  * Font import
+  */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700,100italic,300italic,400italic,700italic');
+$default-browser-font-size: 16px;
+$base-font-size: 10px;
+
+:root {
+  --primary-80: #081b5f;
+  --primary-60: #0e2fa6;
+  --primary-base: #1443ed;
+  --primary-40: #8aa1f6;
+  --primary-20: #f7fafc;
+
+  --grey-90: #1a1a1a;
+  --grey-80: #333333;
+  --grey-70: #4d4d4d;
+  --grey-60: #666666;
+  --grey-base: #808080;
+  --grey-40: #999999;
+  --grey-30: #b3b3b3;
+  --grey-20: #e7f0f2;
+  --grey-10: #f7fbfc;
+
+  --link-base: #000000;
+
+  --foreground-base: #000000;
+  --background-base: #ffffff;
+  --background-background: #f7fbfc;
+}
+
+.dark-theme {
+  --primary-20: #081b5f;
+  --primary-40: #0e2fa6;
+  --primary-base: #1443ed;
+  --primary-60: #8aa1f6;
+  --primary-80: #f7fafc;
+
+  --grey-10: #1a1a1a;
+  --grey-20: #333333;
+  --grey-30: #4d4d4d;
+  --grey-40: #666666;
+  --grey-base: #808080;
+  --grey-60: #999999;
+  --grey-70: #b3b3b3;
+  --grey-80: #cccccc;
+  --grey-90: #f2f2f2;
+
+  --link-base: #ffffff;
+
+  --foreground-base: #ffffff;
+  --background-base: #000000;
+  --background-background: #000000;
+}
+
+html,
+body {
+  @include text-style-body;
+}
+
+html,
+body,
+button {
+  font-family: font-family();
+}
+
+html {
+  position: relative;
+  font-size: ($base-font-size / $default-browser-font-size) * 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: color('background', 'background');
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  font-size: 1em;
+  font-weight: 400;
+}
+
+button::-moz-focus-inner,
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
+  border-style: none;
+}
+
+::-moz-selection {
+  background: color('foreground');
+  color: color('background');
+}
+::selection {
+  background: color('foreground');
+  color: color('background');
+}

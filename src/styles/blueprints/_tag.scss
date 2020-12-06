@@ -1,0 +1,57 @@
+$tag-height: rem(24px);
+$tag-icon-size: rem(16px);
+
+@mixin tag-base() {
+  display: inline-flex;
+  max-width: 100%;
+  align-items: center;
+  min-height: $tag-height;
+  font-size: 12px; // font map needs to be updated
+  padding: 0 spacing(base-tight);
+  background-color: color('grey');
+  border-radius: $tag-height / 2;
+  color: color('white');
+
+  .tag__text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+@mixin tag-base-disabled() {
+  @include recolor-icon(color('grey'));
+  transition: none;
+  background: color('grey');
+  color: color('grey', '30');
+}
+
+// @mixin tab-button() {
+//   @include recolor-icon(color('ink', 'lighter'));
+//   @include unstyled-button;
+//   display: block;
+//   height: $tag-height;
+//   width: $tag-height;
+//   margin-left: spacing(extra-tight);
+//   border-radius: 0 border-radius() border-radius() 0;
+
+//   &:hover, &:focus, &:active {
+//     @include recolor-icon(color('ink'));
+//     background: color('gray', 'dark');
+//   }
+
+//   &:disabled {
+//     @include recolor-icon(color('ink', 'lightest'));
+//     cursor: default;
+//     pointer-events: none;
+//   }
+
+//   &:active {
+//     background: rgba(color('ink', 'lightest'), 0.6);
+//   }
+// }
+
+@mixin tag-variant($tag-color, $tag-text-color) {
+  background: $tag-color;
+  color: $tag-text-color;
+}

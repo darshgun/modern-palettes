@@ -1,0 +1,35 @@
+$duration-data: (
+  'duration-none': (
+    0,
+  ),
+  'duration-fast': (
+    100ms,
+  ),
+  'duration-base': (
+    200ms,
+  ),
+  'duration-slow': (
+    300ms,
+  ),
+  'duration-slower': (
+    400ms,
+  ),
+  'duration-slowest': (
+    500ms,
+  ),
+);
+
+/// Returns the duration value for a given variant.
+///
+/// @param {String} $variant - The key for the given variant.
+/// @return {Number} The duration for the variant (in miliseconds).
+@function duration($variant: base) {
+  $interpolated-value: 'duration-' + $variant;
+  $fetched-value: nth(map-get($duration-data, $interpolated-value), 1);
+
+  @if type-of($fetched-value) == number {
+    @return $fetched-value;
+  } @else {
+    @error 'Duration variant `#{$interpolated-value}` not found. Available variants: #{available-names($duration-data)}';
+  }
+}

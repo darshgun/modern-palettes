@@ -1,0 +1,27 @@
+@import 'styles/common';
+
+.card {
+  background: color('background');
+  border-radius: border-radius();
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+  flex-direction: column;
+  flex: 1;
+  padding: 10px;
+  margin: 0 16px;
+  overflow: hidden;
+  .paletteWrap {
+    display: flex;
+    flex: 1 1 100%;
+  }
+}
+
+.palette {
+  border-radius: border-radius();
+  display: flex;
+  flex: 1 1 100%;
+  overflow: hidden;
+  .color {
+    height: 105px;
+    flex: 1;
+  }
+}

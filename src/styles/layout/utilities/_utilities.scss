@@ -1,0 +1,43 @@
+@import './config/config';
+
+// Get multiple keys from a sass map
+@function map-get-multiple($map, $values) {
+  $result: ();
+  @each $key, $value in $map {
+    @if (index($values, $key) != null) {
+      $result: map-merge(
+        $result,
+        (
+          $key: $value,
+        )
+      );
+    }
+  }
+  @return $result;
+}
+
+$utilities: map-get-multiple(
+  $utilities,
+  (
+    'display',
+    'order',
+    'flex',
+    'flex-direction',
+    'flex-grow',
+    'flex-shrink',
+    'flex-wrap',
+    'justify-content',
+    'align-items',
+    'align-content',
+    'align-self'
+  )
+);
+
+// Temporary OOCSS utility classes
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.font-weight-bold {
+  font-weight: font-weight('bold');
+}

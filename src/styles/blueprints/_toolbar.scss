@@ -1,0 +1,24 @@
+@mixin toolbar-base() {
+  display: flex;
+  .toolbar__item {
+    cursor: pointer;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    padding: spacing('extra-tight') spacing();
+    @include media-breakpoint-up(md) {
+      padding: spacing('tight') spacing();
+    }
+    &__content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      // margin-bottom: auto;
+      &__text {
+        text-align: center;
+      }
+    }
+  }
+}

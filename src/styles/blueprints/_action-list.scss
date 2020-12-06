@@ -1,0 +1,11 @@
+@mixin actionlist-base() {
+  display: flex;
+
+  > .action-list__item {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: font-size(default);
+    padding: spacing('extra-tight') spacing();
+  }
+}

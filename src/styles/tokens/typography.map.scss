@@ -1,0 +1,21 @@
+$font-family-data: (
+  base: #{'Source Sans Pro',
+  'SF Pro Display',
+  'Helvetica Neue',
+  -apple-system,
+  'BlinkMacSystemFont',
+  'San Francisco',
+  'Segoe UI',
+  sans-serif},
+  condensed: #{'Bebas Neue',
+  'BebasNeue'},
+);
+
+$font-weight-data: (
+  base: (
+    thin: 100,
+    light: 300,
+    base: 400,
+    bold: 700,
+  ),
+);

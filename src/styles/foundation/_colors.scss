@@ -1,0 +1,27 @@
+@import "../tokens/colors.map";
+
+/// Returns the color value for a given color name and group.
+///
+/// @param {String} $hue - The color’s hue.
+/// @param {String} $value - The darkness/lightness of the color. Defaults to
+/// base.
+/// @param {Color} $for-background - The background color on which this color
+/// will appear. Applies a multiply filter to ensure appropriate contrast.
+/// @return {Color} The color value.
+@function color($hue, $value: base) {
+  $color-data: $color-palette-data;
+  $return-color: null;
+
+  @if map-has-key($color-data, $hue) {
+    $variant-data: map-get($color-data, $hue);
+
+    @if map-has-key($variant-data, $value) {
+      $return-color: map-get($variant-data, $value);
+      @return $return-color;
+    } @else {
+      @error "Variant `#{$value}` for the color `#{$hue}` not found. Available color variants: #{available-names($variant-data)}";
+    }
+  } @else {
+    @error "Color `#{$hue}` not found. Available color groups: #{available-names($color-data)}";
+  }
+}

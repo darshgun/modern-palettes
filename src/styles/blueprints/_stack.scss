@@ -1,0 +1,10 @@
+@mixin stack-spacing($spacing: base) {
+  margin-top: -1 * spacing($spacing);
+  margin-left: -1 * spacing($spacing);
+
+  > .stack__item {
+    margin-top: spacing($spacing);
+    margin-left: spacing($spacing);
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,31 @@
+$color-palette-data: (
+  'primary': (
+    '80': var(--primary-80),
+    '60': var(--primary-60),
+    'base': var(--primary-base),
+    '40': var(--primary-40),
+    '20': var(--primary-20),
+  ),
+  'grey': (
+    '90': var(--grey-90),
+    '80': var(--grey-80),
+    '70': var(--grey-70),
+    '60': var(--grey-60),
+    'base': var(--grey-base),
+    '40': var(--grey-40),
+    '30': var(--grey-30),
+    '20': var(--grey-20),
+    '10': var(--grey-10),
+  ),
+  'link': (
+    'base': var(--link-base),
+  ),
+  'foreground': (
+    'base': var(--foreground-base),
+    'background': var(--foreground-background),
+  ),
+  'background': (
+    'base': var(--background-base),
+    'background': var(--background-background),
+  ),
+);

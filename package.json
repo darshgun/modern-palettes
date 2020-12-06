@@ -1,0 +1,29 @@
+{
+  "name": "modern-palettes",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint ./src",
+    "format": "prettier \"src/**/*.{js,scss}\" --write"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "next": "10.0.3",
+    "react": "17.0.1",
+    "react-dom": "17.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/node": "^7.12.6",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-proposal-object-rest-spread": "^7.12.1",
+    "eslint": "^7.15.0",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-plugin-react": "^7.21.5",
+    "node-sass": "^5.0.0",
+    "prettier": "^2.2.1"
+  }
+}
