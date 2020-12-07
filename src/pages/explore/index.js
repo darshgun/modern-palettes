@@ -1,20 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import Header from 'layouts/Header';
 import { Container, Grid, Heading, PaletteCard } from 'components';
 
 function index() {
+  const [paletteData, setPaletteData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(true);
+
+    async function fetchPalettes() {
+      const res = await axios.get('/api/palettes/list');
+      setPaletteData(res.data);
+    }
+
+    setLoading(false);
+    fetchPalettes();
+  }, []);
+
   return (
     <div>
       <Header />
       <Heading title="Popular palettes" subtitle="Explore" />
       <Container fluid>
         <Grid>
-          <Grid.Column className="d-flex">
-            <PaletteCard colors={['#E45D2A', '#E56B36', '#EA9938', '#6DCCC1', '#88FBE7']} />
-            <PaletteCard colors={['#E45D2A', '#E56B36', '#EA9938', '#6DCCC1', '#88FBE7']} />
-            <PaletteCard colors={['#E45D2A', '#E56B36', '#EA9938', '#6DCCC1', '#88FBE7']} />
-            <PaletteCard colors={['#E45D2A', '#E56B36', '#EA9938', '#6DCCC1', '#88FBE7']} />
-          </Grid.Column>
+          {paletteData.map((palette, index) => (
+            <PaletteCard key={index} colors={palette.colors} />
+          ))}
         </Grid>
       </Container>
     </div>
