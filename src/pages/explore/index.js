@@ -7,6 +7,8 @@ function index() {
   const [paletteData, setPaletteData] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const downloadOnClick = () => {};
+
   useEffect(() => {
     setLoading(true);
 
@@ -26,7 +28,12 @@ function index() {
       <Container fluid>
         <Grid>
           {paletteData.map((palette, index) => (
-            <PaletteCard key={index} colors={palette.colors} />
+            <PaletteCard
+              key={index}
+              colors={palette.colors}
+              favorites={palette.favorites}
+              downloadOnClick={downloadOnClick}
+            />
           ))}
         </Grid>
       </Container>

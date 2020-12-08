@@ -24,6 +24,27 @@
   }
 }
 
+.actions {
+  $action-size: 20px;
+
+  display: flex;
+  justify-content: space-between;
+  padding-top: spacing('tight');
+  .actionItem {
+    display: flex;
+    height: $action-size;
+    svg {
+      cursor: pointer;
+      height: $action-size;
+      width: $action-size;
+    }
+    .count {
+      font-size: 14px;
+      padding-left: spacing('extra-tight');
+    }
+  }
+}
+
 .palette {
   border-radius: border-radius();
   display: flex;
