@@ -1,11 +1,11 @@
 $arrow-size: 10px;
 
 .popover {
-  display: inline-flex;
   background-color: white;
   overflow: hidden;
   text-align: center;
   min-width: 5rem;
+  z-index: 2;
 
   .arrow {
     top: 0;

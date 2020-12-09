@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { ClassName } from 'utilities/ClassNames';
 import styles from './Portal.module.scss';
 
 function Portal({ children, className, ...props }) {

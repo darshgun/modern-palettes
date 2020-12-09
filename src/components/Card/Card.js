@@ -4,10 +4,14 @@ import styles from './Card.module.scss';
 
 const namespace = 'card';
 
-function Card({ children, className, onClick }) {
-  const properties = { className: ClassNames(styles[namespace], className), onClick };
+function Card({ children, className, ...props }) {
+  const classNames = ClassNames(styles[namespace], className);
 
-  return <div {...properties}>{children}</div>;
+  return (
+    <div className={classNames} {...props}>
+      {children}
+    </div>
+  );
 }
 
 export default Card;

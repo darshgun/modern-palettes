@@ -1,12 +1,10 @@
-import React, { useState, useRef, createRef } from 'react';
+import React, { Fragment, useState, useRef, createRef } from 'react';
 import Header from 'layouts/Header';
 import { Container, Card, Grid, Heading, ColorPicker, Popover } from 'components';
 import styles from './Generate.module.scss';
 
 function index() {
   const [color, setColor] = useState('#fafafa');
-  const [openPicker, setOpenPicker] = useState(false);
-
   const [colorset, setColorset] = useState([
     {
       color: '#fafafa',
@@ -31,12 +29,16 @@ function index() {
   ]);
 
   const pickerRef = useRef();
-  const colorsetItems = [];
+  const colorsetItemRefs = [];
+  const [activeColorset, setActiveColorset] = useState(0);
 
-  const handleColorChange = ({ hex }) => setColor(hex);
+  const handleColorChange = ({ hex }) => {
+    setColor(hex);
+    colorset[activeColorset].color = color;
+  };
   const toggleColorPicker = (triggerRef) => {
+    setColor(colorset[triggerRef].color);
     pickerRef.current.togglePopover(triggerRef);
-    console.log(triggerRef);
   };
 
   const NewColor = ({ children, color, ...props }) => (
@@ -46,36 +48,35 @@ function index() {
   );
 
   return (
-    <div style={{ position: 'relative' }}>
+    <Fragment>
       <Header />
       <Heading title="Create your own" subtitle="Generate" />
-      <Container>
+      <Container className="position-relative">
         <Grid>
           {colorset.map((set, index) => (
             <NewColor
               ref={(element) => {
-                colorsetItems[index] = createRef();
-                colorsetItems[index].current = element;
+                colorsetItemRefs[index] = createRef();
+                colorsetItemRefs[index].current = element;
               }}
               key={index}
               color={set.color}
               onClick={() => {
+                setActiveColorset(index);
                 toggleColorPicker(index);
               }}
             />
           ))}
         </Grid>
+        <Popover ref={pickerRef} withArrow>
+          <ColorPicker
+            color={color}
+            onChange={handleColorChange}
+            onOverlayClick={() => toggleColorPicker()}
+          />
+        </Popover>
       </Container>
-
-      <Popover ref={pickerRef}>
-        <ColorPicker
-          open={openPicker}
-          color={color}
-          onChange={handleColorChange}
-          onOverlayClick={() => toggleColorPicker()}
-        />
-      </Popover>
-    </div>
+    </Fragment>
   );
 }
 
