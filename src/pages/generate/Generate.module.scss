@@ -1,0 +1,17 @@
+@import 'styles/common';
+
+@function cardWidthCalc($width, $spacing) {
+  @return #{'calc(#{$width} - #{($spacing * 2)})'};
+}
+
+.card {
+  flex-direction: column;
+  padding: 10px;
+  margin: 0 spacing('loose') spacing('extra-loose');
+  overflow: hidden;
+  width: cardWidthCalc(20%, spacing('loose'));
+}
+
+.newColor {
+  height: 168px;
+}
