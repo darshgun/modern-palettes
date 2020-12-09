@@ -10,6 +10,7 @@
     "format": "prettier \"src/**/*.{js,scss}\" --write"
   },
   "dependencies": {
+    "@popperjs/core": "^2.5.4",
     "axios": "^0.21.0",
     "classnames": "^2.2.6",
     "next": "10.0.3",
@@ -17,6 +18,7 @@
     "react": "17.0.1",
     "react-color": "^2.19.3",
     "react-dom": "17.0.1",
+    "react-popper": "^2.2.4",
     "react-standard-modal": "^0.1.10"
   },
   "devDependencies": {
