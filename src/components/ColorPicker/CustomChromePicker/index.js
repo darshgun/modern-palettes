@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import reactCSS from 'reactcss';
 import merge from 'lodash/merge';
+import { Card } from 'components';
 
 import { ColorWrap, Saturation, Hue, Alpha, Checkboard } from 'react-color/lib/components/common';
 import ChromeFields from './ChromeFields';
@@ -109,7 +110,7 @@ export const Chrome = ({
   );
 
   return (
-    <div style={styles.picker} className={`chrome-picker ${className}`}>
+    <Card style={styles.picker} className={`chrome-picker ${className}`}>
       <div style={styles.saturation}>
         <Saturation
           style={styles.Saturation}
@@ -152,7 +153,7 @@ export const Chrome = ({
           disableAlpha={disableAlpha}
         />
       </div>
-    </div>
+    </Card>
   );
 };
 

@@ -1,0 +1,26 @@
+@import 'styles/common';
+
+.ColorPicker {
+  height: 300px;
+  width: 200px;
+  position: relative;
+  z-index: 9;
+}
+
+.overlay {
+  background-color: rgba(255, 255, 255, 0.1);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  z-index: 2;
+}
+
+.portal {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+}

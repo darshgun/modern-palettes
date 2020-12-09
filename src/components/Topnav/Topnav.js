@@ -33,7 +33,7 @@ export const Topbar = ({ title }) => {
             <Link href="/explore">Explore</Link>
           </li>
           <li>
-            <Link href="/#">Generate</Link>
+            <Link href="/generate">Generate</Link>
           </li>
           <li>
             <Link href="/#">More</Link>

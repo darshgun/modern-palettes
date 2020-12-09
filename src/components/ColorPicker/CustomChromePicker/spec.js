@@ -5,7 +5,7 @@ import renderer from 'react-test-renderer';
 import * as color from 'react-color/lib/helpers/color';
 import { mount } from 'enzyme';
 
-import Chrome from './Chrome';
+import Chrome from '.';
 import ChromeFields from './ChromeFields';
 import ChromePointer from './ChromePointer';
 import ChromePointerCircle from './ChromePointerCircle';

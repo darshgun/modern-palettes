@@ -1,4 +1,5 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState } from 'react';
+import { Card } from 'components';
 import FavoriteIcon from 'icons/favorite-outline.svg';
 import FavoriteFilledIcon from 'icons/favorite-filled.svg';
 import DownloadIcon from 'icons/download.svg';
@@ -25,7 +26,7 @@ function PaletteCard({ colors, favorites, favoriteOnClick, downloadOnClick }) {
   };
 
   return (
-    <div className={styles.card}>
+    <Card className={styles.card}>
       <div className={styles.paletteWrap}>{makePalette()}</div>
       <div className={styles.actions}>
         <div className={styles.actionItem}>
@@ -36,7 +37,7 @@ function PaletteCard({ colors, favorites, favoriteOnClick, downloadOnClick }) {
           <DownloadIcon onClick={downloadOnClick} />
         </div>
       </div>
-    </div>
+    </Card>
   );
 }
 
