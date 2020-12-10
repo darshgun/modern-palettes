@@ -1,4 +1,5 @@
-import React, { Fragment, useState, useRef, createRef } from 'react';
+import React, { Fragment, useState, useEffect, useRef, createRef } from 'react';
+import validateHex from 'helpers/validateHex';
 import Header from 'layouts/Header';
 import { Container, Card, Grid, Heading, ColorPicker, Popover } from 'components';
 import styles from './Generate.module.scss';
@@ -31,8 +32,11 @@ function index() {
     },
   ]);
 
-  const [activeColorSet, setActiveColorSet] = useState({});
-  const updateActiveColorSet = (index, values) => {};
+  const [activeColorSet, setActiveColorSet] = useState(0);
+  useEffect(() => {
+    validateHex(color);
+    colorSets[activeColorSet].color = color;
+  }, [activeColorSet, color]);
 
   /**
    * Color picker and colorSet refs
@@ -47,23 +51,14 @@ function index() {
   /**
    * ColorPicker actions
    */
-  const handleColorPickerChange = ({ hex }) => {
+  const handleColorPickerOnChange = ({ hex }) => {
     setColor(hex);
     colorSets[activeColorSet].color = color;
   };
-  const handleColorPickerChangeComplete = ({ hex }) => {
+  const handleColorPickerOnChangeComplete = ({ hex }) => {
     setColor(hex);
-    console.log(hex);
     colorSets[activeColorSet].color = color;
   };
-
-  const NewColor = ({ children, color, onInputChange, ...props }) => (
-    <Card className={styles.card} {...props}>
-      <div className={styles.newColor} style={{ backgroundColor: color }}>
-        <input type="text" value={color} onChange={onInputChange} />
-      </div>
-    </Card>
-  );
 
   return (
     <Fragment>
@@ -72,7 +67,8 @@ function index() {
       <Container className="position-relative">
         <Grid>
           {colorSets.map((set, index) => (
-            <NewColor
+            <Card
+              className={styles.card}
               ref={(element) => {
                 colorSetRefs[index] = createRef();
                 colorSetRefs[index].current = element;
@@ -81,18 +77,29 @@ function index() {
               color={set.color}
               onClick={() => {
                 setActiveColorSet(index);
-                toggleColorPicker(index);
               }}
-              onInputChange={() => set}
-            />
+            >
+              <input
+                type="text"
+                value={color}
+                onChange={(event) => {
+                  setColor(event.target.value);
+                }}
+              />
+              <div
+                className={styles.newColor}
+                style={{ backgroundColor: color }}
+                onClick={() => toggleColorPicker(index)}
+              ></div>
+            </Card>
           ))}
         </Grid>
 
         <Popover ref={pickerRef} withArrow>
           <ColorPicker
             color={color}
-            onChange={handleColorPickerChange}
-            onChangeComplete={handleColorPickerChangeComplete}
+            onChange={handleColorPickerOnChange}
+            onChangeComplete={handleColorPickerOnChangeComplete}
           />
         </Popover>
       </Container>
