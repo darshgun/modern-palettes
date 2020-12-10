@@ -68,7 +68,7 @@ function index() {
         <Grid>
           {colorSets.map((set, index) => (
             <Card
-              className={styles.card}
+              className={`${styles.card} ${styles.newColor}`}
               ref={(element) => {
                 colorSetRefs[index] = createRef();
                 colorSetRefs[index].current = element;
@@ -80,15 +80,16 @@ function index() {
               }}
             >
               <input
+                className={styles.newColorInput}
                 type="text"
-                value={color}
+                value={set.color}
                 onChange={(event) => {
                   setColor(event.target.value);
                 }}
               />
               <div
-                className={styles.newColor}
-                style={{ backgroundColor: color }}
+                className={styles.newColorBox}
+                style={{ backgroundColor: set.color }}
                 onClick={() => toggleColorPicker(index)}
               ></div>
             </Card>

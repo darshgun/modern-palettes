@@ -4,14 +4,32 @@
   @return #{'calc(#{$width} - #{($spacing * 2)})'};
 }
 
-.card {
+.newColor {
   flex-direction: column;
   padding: 10px;
   margin: 0 spacing('loose') spacing('extra-loose');
   overflow: hidden;
   width: cardWidthCalc(20%, spacing('loose'));
+  position: relative;
 }
 
-.newColor {
+.newColorBox {
   height: 168px;
+  width: 100%;
+}
+
+.newColorInput {
+  background: transparent;
+  color: rgba(0, 0, 0, 0.5);
+  border: none;
+  bottom: 30px;
+  font-size: 18px;
+  position: absolute;
+  text-align: center;
+  width: calc(100% - 20px);
+  transition: ease-in-out color 200ms;
+  &:focus {
+    color: rgba(0, 0, 0, 0.8);
+    outline: none;
+  }
 }
