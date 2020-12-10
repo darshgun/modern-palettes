@@ -82,14 +82,14 @@ function index() {
               <input
                 className={styles.newColorInput}
                 type="text"
-                value={set.color}
+                value={color}
                 onChange={(event) => {
                   setColor(event.target.value);
                 }}
               />
               <div
                 className={styles.newColorBox}
-                style={{ backgroundColor: set.color }}
+                style={{ backgroundColor: color }}
                 onClick={() => toggleColorPicker(index)}
               ></div>
             </Card>
