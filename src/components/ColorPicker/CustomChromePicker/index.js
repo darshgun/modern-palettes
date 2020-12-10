@@ -20,6 +20,7 @@ export const Chrome = ({
   styles: passedStyles = {},
   className = '',
   defaultView,
+  onChangeComplete,
 }) => {
   const styles = reactCSS(
     merge(
@@ -150,6 +151,7 @@ export const Chrome = ({
           view={defaultView}
           onChange={onChange}
           disableAlpha={disableAlpha}
+          onChangeComplete={onChangeComplete}
         />
       </div>
     </div>
@@ -165,7 +167,7 @@ Chrome.propTypes = {
 
 Chrome.defaultProps = {
   width: 225,
-  disableAlpha: false,
+  disableAlpha: true,
   styles: {},
 };
 

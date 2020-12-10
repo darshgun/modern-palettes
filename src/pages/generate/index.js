@@ -4,8 +4,11 @@ import { Container, Card, Grid, Heading, ColorPicker, Popover } from 'components
 import styles from './Generate.module.scss';
 
 function index() {
+  /**
+   * Default color and starter color sets
+   */
   const [color, setColor] = useState('#fafafa');
-  const [colorset, setColorset] = useState([
+  const [colorSets, setColorSets] = useState([
     {
       color: '#fafafa',
       order: 1,
@@ -28,22 +31,37 @@ function index() {
     },
   ]);
 
-  const pickerRef = useRef();
-  const colorsetItemRefs = [];
-  const [activeColorset, setActiveColorset] = useState(0);
+  const [activeColorSet, setActiveColorSet] = useState({});
+  const updateActiveColorSet = (index, values) => {};
 
-  const handleColorChange = ({ hex }) => {
-    setColor(hex);
-    colorset[activeColorset].color = color;
-  };
+  /**
+   * Color picker and colorSet refs
+   */
+  const pickerRef = useRef();
+  const colorSetRefs = [];
   const toggleColorPicker = (triggerRef) => {
-    setColor(colorset[triggerRef].color);
+    setColor(colorSets[triggerRef].color);
     pickerRef.current.togglePopover(triggerRef);
   };
 
-  const NewColor = ({ children, color, ...props }) => (
+  /**
+   * ColorPicker actions
+   */
+  const handleColorPickerChange = ({ hex }) => {
+    setColor(hex);
+    colorSets[activeColorSet].color = color;
+  };
+  const handleColorPickerChangeComplete = ({ hex }) => {
+    setColor(hex);
+    console.log(hex);
+    colorSets[activeColorSet].color = color;
+  };
+
+  const NewColor = ({ children, color, onInputChange, ...props }) => (
     <Card className={styles.card} {...props}>
-      <div className={styles.newColor} style={{ backgroundColor: color }}></div>
+      <div className={styles.newColor} style={{ backgroundColor: color }}>
+        <input type="text" value={color} onChange={onInputChange} />
+      </div>
     </Card>
   );
 
@@ -53,26 +71,28 @@ function index() {
       <Heading title="Create your own" subtitle="Generate" />
       <Container className="position-relative">
         <Grid>
-          {colorset.map((set, index) => (
+          {colorSets.map((set, index) => (
             <NewColor
               ref={(element) => {
-                colorsetItemRefs[index] = createRef();
-                colorsetItemRefs[index].current = element;
+                colorSetRefs[index] = createRef();
+                colorSetRefs[index].current = element;
               }}
               key={index}
               color={set.color}
               onClick={() => {
-                setActiveColorset(index);
+                setActiveColorSet(index);
                 toggleColorPicker(index);
               }}
+              onInputChange={() => set}
             />
           ))}
         </Grid>
+
         <Popover ref={pickerRef} withArrow>
           <ColorPicker
             color={color}
-            onChange={handleColorChange}
-            onOverlayClick={() => toggleColorPicker()}
+            onChange={handleColorPickerChange}
+            onChangeComplete={handleColorPickerChangeComplete}
           />
         </Popover>
       </Container>
