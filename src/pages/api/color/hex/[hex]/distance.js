@@ -1,4 +1,4 @@
-import nameColor from 'helpers/nameColor';
+import { colorDistances } from 'helpers/nameColor';
 import validateHex from 'helpers/validateHex';
 
 export default function distance(request, response) {
@@ -7,7 +7,7 @@ export default function distance(request, response) {
   } = request;
   const hexString = `#${hex}`;
 
-  const ntc = nameColor(hexString);
+  const ntc = colorDistances(hexString);
 
   if (validateHex(hexString)) {
     return response.status(200).json(ntc);

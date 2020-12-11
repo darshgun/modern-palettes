@@ -10,7 +10,7 @@ export default function distance(request, response) {
   const ntc = nameColor(hexString);
 
   if (validateHex(hexString)) {
-    return response.status(200).json(ntc[0].name);
+    return response.status(200).json(ntc);
   }
   response.end('Invalid color code');
 }

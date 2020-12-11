@@ -3,6 +3,7 @@ import axios from 'axios';
 import { SeoTags } from 'helpers/seoTags';
 import Header from 'layouts/Header';
 import { data as dummyData } from './api/palettes/list';
+import { exportCss } from 'helpers/exporter';
 import { Container, Grid, Heading, PaletteCard, Modal, SyntaxBox } from 'components';
 
 function index() {
@@ -10,10 +11,12 @@ function index() {
   const [activePalette, setActivePalette] = useState();
   const [loading, setLoading] = useState(true);
   const [exportModalOpen, setExportModalOpen] = useState(false);
+  const [exportCssCode, setExportCssCode] = useState('{}');
 
   const exportOnClick = (index) => {
-    setExportModalOpen(true);
+    setExportCssCode(exportCss(paletteData[index]));
     setActivePalette(index);
+    setExportModalOpen(true);
   };
 
   useEffect(() => {
@@ -44,12 +47,14 @@ function index() {
               key={index}
               colors={palette.colors}
               favorites={palette.favorites}
-              downloadOnClick={() => exportOnClick(index)}
+              downloadOnClick={() => {
+                exportOnClick(index);
+              }}
             />
           ))}
         </Grid>
         <Modal open={exportModalOpen} overlayClick={() => setExportModalOpen(false)}>
-          <SyntaxBox />
+          <SyntaxBox code={exportCssCode} />
         </Modal>
       </Container>
     </div>
