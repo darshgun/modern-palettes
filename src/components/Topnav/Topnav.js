@@ -30,7 +30,7 @@ export const Topbar = ({ title }) => {
         </ul> */}
         <ul className={`${styles.linkGroup} ml-auto`}>
           <li>
-            <Link href="/explore">Explore</Link>
+            <Link href="/">Explore</Link>
           </li>
           <li>
             <Link href="/generate">Generate</Link>
