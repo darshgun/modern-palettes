@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Header from 'layouts/Header';
 import { data as dummyData } from './api/palettes/list';
-import { Container, Grid, Heading, PaletteCard } from 'components';
+import { Container, Grid, Heading, PaletteCard, Modal } from 'components';
 
 function index() {
   const [paletteData, setPaletteData] = useState([]);
@@ -38,6 +38,7 @@ function index() {
             />
           ))}
         </Grid>
+        <Modal open={true}>Test</Modal>
       </Container>
     </div>
   );

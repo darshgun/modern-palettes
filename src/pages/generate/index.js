@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect, useRef, createRef } from 'react';
 import validateHex from 'helpers/validateHex';
 import Header from 'layouts/Header';
-import { Container, Card, Grid, Heading, ColorPicker, Popover, Modal } from 'components';
+import { Container, Card, Grid, Heading, ColorPicker, Popover } from 'components';
 import styles from './Generate.module.scss';
 
 function index() {
@@ -103,7 +103,6 @@ function index() {
             onChangeComplete={handleColorPickerOnChangeComplete}
           />
         </Popover>
-        <Modal open={true}>Test</Modal>
       </Container>
     </Fragment>
   );
