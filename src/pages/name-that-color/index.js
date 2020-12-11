@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import { SeoTags } from 'helpers/seoTags';
 import Header from 'layouts/Header';
+import nameColor from 'helpers/nameColor';
 import { Container, Grid, Heading, Card, ColorBoard } from 'components';
 
 export default function index() {
-  const [color, setColor] = useState();
+  const [color, setColor] = useState('#fefefe');
   const router = useRouter();
   const { query } = router;
 
@@ -33,7 +34,10 @@ export default function index() {
               onChangeComplete={handleColorBoardOnChangeComplete}
             />
           </Grid.Column>
-          <Grid.Column size={{ sm: '2/3' }}>{color}</Grid.Column>
+          <Grid.Column size={{ sm: '2/3' }}>
+            Color code: {color} <br />
+            Color name: {nameColor(color)}
+          </Grid.Column>
         </Grid>
       </Container>
     </div>
