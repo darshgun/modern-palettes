@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useEffect, useRef, createRef } from 'react';
 import validateHex from 'helpers/validateHex';
+import nameColor from 'helpers/nameColor';
 import Header from 'layouts/Header';
 import { Container, Card, Grid, Heading, ColorPicker, Popover } from 'components';
 import styles from './Generate.module.scss';
@@ -91,7 +92,9 @@ function index() {
                 className={styles.newColorBox}
                 style={{ backgroundColor: index === activeColorSet ? color : set.color }}
                 onClick={() => toggleColorPicker(index)}
-              ></div>
+              >
+                {nameColor(index === activeColorSet ? color : set.color)}
+              </div>
             </Card>
           ))}
         </Grid>
