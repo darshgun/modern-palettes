@@ -23,14 +23,9 @@ export const Topbar = ({ title }) => {
         <div className={styles.brand}>
           <Link href="/">{logo}</Link>
         </div>
-        {/* <ul className={styles.linkGroup}>
-          <li>
-            <Link href="/browse">Browse</Link>
-          </li>
-        </ul> */}
         <ul className={`${styles.linkGroup} ml-auto`}>
           <li>
-            <Link href="/">Explore</Link>
+            <Link href="/">Palettes</Link>
           </li>
           <li>
             <Link href="/generate">Generate</Link>
