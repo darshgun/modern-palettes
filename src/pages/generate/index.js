@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect, useRef, createRef } from 'react';
 import validateHex from 'helpers/validateHex';
-import nameColor from 'helpers/nameColor';
+import { SeoTags } from 'helpers/seoTags';
 import Header from 'layouts/Header';
 import { Container, Card, Grid, Heading, ColorPicker, Popover } from 'components';
 import styles from './Generate.module.scss';
@@ -65,6 +65,10 @@ function index() {
   return (
     <Fragment>
       <Header />
+      <SeoTags
+        title="Generate color palettes"
+        description="Create and publish your own color palettes"
+      />
       <Heading title="Create your own" subtitle="Generate" />
       <Container className="position-relative">
         <Grid>

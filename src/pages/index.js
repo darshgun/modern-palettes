@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { SeoTags } from 'helpers/seoTags';
 import Header from 'layouts/Header';
 import { data as dummyData } from './api/palettes/list';
 import { Container, Grid, Heading, PaletteCard, Modal, SyntaxBox } from 'components';
@@ -31,6 +32,10 @@ function index() {
   return (
     <div>
       <Header />
+      <SeoTags
+        title="Popular color palettes"
+        description="Explore modern, trending color palettes"
+      />
       <Heading title="Popular palettes" subtitle="Explore" />
       <Container fluid>
         <Grid>

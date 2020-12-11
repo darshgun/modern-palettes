@@ -10,7 +10,6 @@ const CirclePointer = () => <div className={styles.circlePointer} />;
 export const ColorBoard = ({
   width,
   onChange,
-  disableAlpha,
   rgb,
   hsl,
   hsv,
@@ -57,14 +56,10 @@ export const ColorBoard = ({
 
 ColorBoard.propTypes = {
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  disableAlpha: PropTypes.bool,
   styles: PropTypes.object,
   defaultView: PropTypes.oneOf(['hex', 'rgb', 'hsl']),
 };
 
-ColorBoard.defaultProps = {
-  disableAlpha: true,
-  styles: {},
-};
+ColorBoard.defaultProps = {};
 
 export default ColorWrap(ColorBoard);
