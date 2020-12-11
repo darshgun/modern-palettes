@@ -6,9 +6,14 @@ import { Container, Grid, Heading, PaletteCard, Modal } from 'components';
 
 function index() {
   const [paletteData, setPaletteData] = useState([]);
+  const [activePalette, setActivePalette] = useState();
   const [loading, setLoading] = useState(true);
+  const [exportModalOpen, setExportModalOpen] = useState(false);
 
-  const downloadOnClick = () => {};
+  const exportOnClick = (index) => {
+    setExportModalOpen(true);
+    setActivePalette(index);
+  };
 
   useEffect(() => {
     setLoading(true);
@@ -34,11 +39,13 @@ function index() {
               key={index}
               colors={palette.colors}
               favorites={palette.favorites}
-              downloadOnClick={downloadOnClick}
+              downloadOnClick={() => exportOnClick(index)}
             />
           ))}
         </Grid>
-        <Modal open={true}>Test</Modal>
+        <Modal open={exportModalOpen} overlayClick={() => setExportModalOpen(false)}>
+          Test
+        </Modal>
       </Container>
     </div>
   );

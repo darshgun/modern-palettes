@@ -34,6 +34,7 @@ function index() {
 
   const [activeColorSet, setActiveColorSet] = useState(0);
   useEffect(() => {
+    console.log(activeColorSet);
     validateHex(color);
     colorSets[activeColorSet].color = color;
   }, [activeColorSet, color]);
@@ -74,7 +75,6 @@ function index() {
                 colorSetRefs[index].current = element;
               }}
               key={index}
-              color={set.color}
               onClick={() => {
                 setActiveColorSet(index);
               }}
@@ -82,14 +82,14 @@ function index() {
               <input
                 className={styles.newColorInput}
                 type="text"
-                value={color}
+                value={index === activeColorSet ? color : set.color}
                 onChange={(event) => {
                   setColor(event.target.value);
                 }}
               />
               <div
                 className={styles.newColorBox}
-                style={{ backgroundColor: color }}
+                style={{ backgroundColor: index === activeColorSet ? color : set.color }}
                 onClick={() => toggleColorPicker(index)}
               ></div>
             </Card>
