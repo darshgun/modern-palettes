@@ -6,3 +6,4 @@ export { default as PaletteCard } from './PaletteCard';
 export { default as Portal } from './Portal';
 export { default as Popover } from './Popover';
 export { default as ColorPicker } from './ColorPicker';
+export { default as Modal } from './Modal';
