@@ -92,9 +92,7 @@ function index() {
                 className={styles.newColorBox}
                 style={{ backgroundColor: index === activeColorSet ? color : set.color }}
                 onClick={() => toggleColorPicker(index)}
-              >
-                {nameColor(index === activeColorSet ? color : set.color)}
-              </div>
+              ></div>
             </Card>
           ))}
         </Grid>

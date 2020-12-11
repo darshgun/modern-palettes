@@ -5,6 +5,7 @@ export { default as Heading } from './Heading';
 export { default as PaletteCard } from './PaletteCard';
 export { default as Portal } from './Portal';
 export { default as Popover } from './Popover';
+export { default as ColorBoard } from './ColorBoard';
 export { default as ColorPicker } from './ColorPicker';
 export { default as Modal } from './Modal';
 export { default as SyntaxBox } from './SyntaxBox';

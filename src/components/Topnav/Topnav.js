@@ -37,6 +37,9 @@ export const Topbar = ({ title }) => {
                 <Link href="/#">Favorites</Link>
               </li>
               <li>
+                <Link href="/color-namer">Color Namer</Link>
+              </li>
+              <li>
                 <Link href="/#">Contrast checker</Link>
               </li>
               <li>

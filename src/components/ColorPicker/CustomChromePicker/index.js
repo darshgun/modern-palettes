@@ -118,6 +118,7 @@ export const Chrome = ({
           hsv={hsv}
           pointer={ChromePointerCircle}
           onChange={onChange}
+          onChangeComplete={onChangeComplete}
         />
       </div>
       <div style={styles.body}>
@@ -140,6 +141,7 @@ export const Chrome = ({
                 pointer={ChromePointer}
                 renderers={renderers}
                 onChange={onChange}
+                onChangeComplete={onChangeComplete}
               />
             </div>
           </div>
