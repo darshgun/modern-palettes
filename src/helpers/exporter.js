@@ -1,6 +1,6 @@
 import nameColor from 'helpers/nameColor';
 
-export const exportCss = (colorset) => {
+export function exportCss(colorset) {
   let exportCode = '';
   const { colors } = colorset;
 
@@ -10,4 +10,4 @@ export const exportCss = (colorset) => {
   });
 
   return exportCode;
-};
+}
