@@ -34,8 +34,8 @@ export default function index({ urlColor }) {
 
   useEffect(() => {
     if (validateHex(colorInput)) {
-      setColor(colorInput);
       if (typing) {
+        setColor(colorInput);
         setShadowUrl(colorInput);
       }
     }
