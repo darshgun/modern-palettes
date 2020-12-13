@@ -5,7 +5,7 @@ import FavoriteFilledIcon from 'icons/favorite-filled.svg';
 import DownloadIcon from 'icons/download.svg';
 import styles from './PaletteCard.module.scss';
 
-function PaletteCard({ colors, favorites, favoriteOnClick, downloadOnClick }) {
+function PaletteCard({ colors, favorites, favoriteOnClick, downloadOnClick, name }) {
   const makePalette = () => {
     return (
       <div className={styles.palette}>
@@ -27,6 +27,7 @@ function PaletteCard({ colors, favorites, favoriteOnClick, downloadOnClick }) {
 
   return (
     <Card className={styles.card}>
+      {name && <div className={styles.paletteName}>{name}</div>}
       <div className={styles.paletteWrap}>{makePalette()}</div>
       <div className={styles.actions}>
         <div className={styles.actionItem}>
