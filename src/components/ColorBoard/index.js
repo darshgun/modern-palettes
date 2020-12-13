@@ -19,11 +19,24 @@ export const ColorBoard = ({
   className = '',
   defaultView,
   onChangeComplete,
+  elementClassName,
 }) => {
   return (
-    <div>
-      <Card className={`chrome-picker ${className} ${styles.card}`}>
-        <div className={styles.saturation}>
+    <div className={styles.wrapper}>
+      <Card className={`${styles.hueCard} ${styles.card}`}>
+        <div className={`${styles.hue} ${elementClassName}`}>
+          <Hue
+            direction="vertical"
+            className={styles.Hue}
+            hsl={hsl}
+            pointer={HuePointer}
+            onChange={onChange}
+            onChangeComplete={onChangeComplete}
+          />
+        </div>
+      </Card>
+      <Card className={`${className} ${styles.card}`}>
+        <div className={`${styles.saturation} ${elementClassName}`}>
           <Saturation
             style={styles.Saturation}
             hsl={hsl}
@@ -32,22 +45,6 @@ export const ColorBoard = ({
             onChange={onChange}
             onChangeComplete={onChangeComplete}
           />
-        </div>
-      </Card>
-
-      <Card className={styles.card}>
-        <div className={`flexbox-fix ${styles.controls}`}>
-          <div className={styles.toggles}>
-            <div className={styles.hue}>
-              <Hue
-                className={styles.Hue}
-                hsl={hsl}
-                pointer={HuePointer}
-                onChange={onChange}
-                onChangeComplete={onChangeComplete}
-              />
-            </div>
-          </div>
         </div>
       </Card>
     </div>

@@ -111,6 +111,15 @@ button::-moz-focus-inner,
 [type='reset']::-moz-focus-inner,
 [type='submit']::-moz-focus-inner {
   border-style: none;
+  &:focus {
+    outline: none;
+  }
+}
+
+input {
+  &:focus {
+    outline: none;
+  }
 }
 
 ::-moz-selection {
