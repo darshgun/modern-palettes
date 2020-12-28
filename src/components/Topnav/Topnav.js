@@ -40,10 +40,10 @@ export const Topbar = ({ title }) => {
                 <Link href="/name-that-color">Name that color</Link>
               </li>
               <li>
-                <Link href="/#">Contrast checker</Link>
+                <Link href="/brand-colors">Brand colors</Link>
               </li>
               <li>
-                <Link href="/#">Tints &amp; shades</Link>
+                <Link href="/#">Contrast checker</Link>
               </li>
             </ul>
           </li>
